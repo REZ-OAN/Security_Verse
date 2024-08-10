@@ -13,11 +13,11 @@ While `SSL` has been replaced by **TLS (Transport Layer Security)** as the stand
 
 HTTP
 
-![HTTP](https://github.com/REZ-OAN/Security_Verse/tree/main/images/ssl/http-not-secure.png)
+![HTTP](https://github.com/REZ-OAN/Security_Verse/blob/main/images/ssl/http-not-secure.png)
 
 HTTPS
 
-![HTTPS](https://github.com/REZ-OAN/Security_Verse/tree/main/images/ssl/https-secure.png)
+![HTTPS](https://github.com/REZ-OAN/Security_Verse/blob/main/images/ssl/https-secure.png)
 
 # How SSL comes into play ?
 
@@ -25,7 +25,7 @@ HTTPS
 
 Let's assume you (a client, a browser) wants to communicate (send/receive data) with a server. You share your **id and password** (send as a plain text without any `encryption`) to access the server on a request and server gives you the access to it after verifying. In the mean time a **hacker** can `sniff` your data (id and password) and use these to harm you.
 
-![hacker sniffs data when without any encryption](https://github.com/REZ-OAN/Security_Verse/tree/main/images/ssl/without-encryption.png)
+![hacker sniffs data when without any encryption](https://github.com/REZ-OAN/Security_Verse/blob/main/images/ssl/without-encryption.png)
 
 To **protect** your **sensitive** information from being exposed, `encryption` is essential. Encryption transforms your data into an unreadable format before it's transmitted, so even if a hacker intercepts it, they can't make sense of it. 
 
@@ -33,11 +33,11 @@ To **protect** your **sensitive** information from being exposed, `encryption` i
 
 Here comes the concept of **Symmetric Encryption** technique. In this method a client generates a key and this key is responsible to `encrypt` and also `decrypt` the data (**plaintext**) and encrypted data (**ciphertext**).
 
-![generate-symmertic-key-and-data-pass-with-encryption](https://github.com/REZ-OAN/Security_Verse/tree/main/images/ssl/symmetric-key-gen-data-pass.png)
+![generate-symmertic-key-and-data-pass-with-encryption](https://github.com/REZ-OAN/Security_Verse/blob/main/images/ssl/symmetric-key-gen-data-pass.png)
 
 But if we do not pass the symmetric key to the server, the server also cannot decrypt the data. Hence we have to sent the symmetric key to the server. And here the hacker will sniff the symmetric key and see the data after decryption.
 
-![sniffing-the-symmetric-key-and-decrypt-data](https://github.com/REZ-OAN/Security_Verse/tree/main/images/ssl/symmetric-key-sniffed.png)
+![sniffing-the-symmetric-key-and-decrypt-data](https://github.com/REZ-OAN/Security_Verse/blob/main/images/ssl/symmetric-key-sniffed.png)
 
 To safeguard the **symmetric key**, we use the `asymmetric encryption` technique.
 
@@ -45,13 +45,13 @@ To safeguard the **symmetric key**, we use the `asymmetric encryption` technique
 
 With symmetric encryption technique we saw that our data is insecure. But if we transfer the symmetric key using some encryption technique then it may be secure. To ensure this concept of securing the **symmetric key** here comes `Asymmetric Encryption` technique. In **asymmetric encryption**, two different but related `keys` are used: a `public key (locker)`for **encryption** and a `private key (key)` for **decryption**. The **public key** is shared `openly` and can be used by anyone to **encrypt** data, but only the person with the corresponding **private key** can **decrypt** it. This method is mostly followed by the server. In the sever side we generate these two keys and first we share the `public key` with the clients.
 
-![protection-of-symmetric-key-as-well-as-data](https://github.com/REZ-OAN/Security_Verse/tree/main/images/ssl/with-both.png)
+![protection-of-symmetric-key-as-well-as-data](https://github.com/REZ-OAN/Security_Verse/blob/main/images/ssl/with-both.png)
 
 **NOTE**: Once the server receives the symmetric key, all data is encrypted and decrypted using that key.
 
 It's definitely a complex system, but does it fully guarantee that our data can't be intercepted? Unfortunately, the answer is no. A skilled hacker can act as a middleman, pretending to be a legitimate client to the server and a legitimate server to the client. The hacker would act as a proxy. 
 
-![proxy-hacker](https://github.com/REZ-OAN/Security_Verse/tree/main/images/ssl/proxy-hacker.png)
+![proxy-hacker](https://github.com/REZ-OAN/Security_Verse/blob/main/images/ssl/proxy-hacker.png)
 
 With the hacker in possession of the symmetric key, they can intercept and decrypt our data. So, how do we solve this problem? This is where SSL certificates steps in as the true savior.
 
@@ -59,7 +59,7 @@ With the hacker in possession of the symmetric key, they can intercept and decry
 
 When a server sends its `public key` to the client, it also sends an **SSL certificate** along with it. This certificate is signed by a trusted `Certificate Authority` (CA), which acts as the **issuer**. With this certificate, the client can `verify` whether the public key it received is indeed from the legitimate server or if it might have been intercepted and altered by a hacker.
 
-![ssl-certificate](https://github.com/REZ-OAN/Security_Verse/tree/main/images/ssl/ssl-certificate.png)
+![ssl-certificate](https://github.com/REZ-OAN/Security_Verse/blob/main/images/ssl/ssl-certificate.png)
 
 If a hacker intercepts and tries to alter the public key, the tampering will be detected during the verification process. As a result, the client will abort the connection, ensuring that the communication remains secure.
 
@@ -106,4 +106,4 @@ The CA uses its `private key` to sign the **SSL certificate**. This signature ac
 
 # View the SSL certificate after visiting to a website
 
-- [View SSL Certificate](https://github.com/REZ-OAN/Security_Verse/tree/main/docs/CheckSSLCertification.md)
+- [View SSL Certificate](https://github.com/REZ-OAN/Security_Verse/blob/main/docs/CheckSSLCertification.md)
